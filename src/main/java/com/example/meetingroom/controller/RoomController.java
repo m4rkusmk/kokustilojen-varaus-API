@@ -25,4 +25,9 @@ public class RoomController {
     public List<MeetingRoom> list() {
         return service.findAll();
     }
+
+    @GetMapping("/{id}")
+    public MeetingRoom get(@PathVariable Long id) {
+        return service.get(id);
+    }
 }

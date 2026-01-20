@@ -19,6 +19,11 @@ public class MeetingRoomService {
         return repository.save(room);
     }
 
+    public MeetingRoom get(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Meetingroom not found"));
+    }
+
     public List<MeetingRoom> findAll() {
         return repository.findAll();
     }
