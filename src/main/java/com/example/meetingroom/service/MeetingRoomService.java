@@ -16,9 +16,16 @@ public class MeetingRoomService {
     }
 
     public MeetingRoom create(MeetingRoom room) {
+
         if (room.getName().isEmpty()) {
             throw new IllegalArgumentException("Meetingroom must have a name");
         }
+
+        repository.findAll().forEach(existing -> {
+            if (existing.getName().equals(room.getName())) {
+                throw new IllegalArgumentException("Meetingroom has already been created");
+            }
+        });
         return repository.save(room);
     }
 
