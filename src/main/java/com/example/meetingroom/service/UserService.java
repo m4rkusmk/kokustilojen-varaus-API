@@ -21,7 +21,7 @@ public class UserService {
         }
         repository.findAll().forEach(existing -> {
             if (existing.getEmail().equals(user.getEmail())) {
-                throw new IllegalArgumentException("User already exists");
+                throw new IllegalArgumentException("User with email: " + user.getEmail() + " already exists");
             }
         });
         return repository.save(user);

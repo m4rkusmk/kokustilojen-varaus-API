@@ -23,7 +23,7 @@ public class MeetingRoomService {
 
         repository.findAll().forEach(existing -> {
             if (existing.getName().equals(room.getName())) {
-                throw new IllegalArgumentException("Meetingroom has already been created");
+                throw new IllegalArgumentException("Meetingroom '" + room.getName() + "' already exists");
             }
         });
         return repository.save(room);
