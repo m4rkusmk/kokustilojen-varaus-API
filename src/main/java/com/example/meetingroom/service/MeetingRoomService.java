@@ -16,6 +16,9 @@ public class MeetingRoomService {
     }
 
     public MeetingRoom create(MeetingRoom room) {
+        if (room.getName().isEmpty()) {
+            throw new IllegalArgumentException("Meetingroom must have a name");
+        }
         return repository.save(room);
     }
 
