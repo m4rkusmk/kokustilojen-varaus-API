@@ -13,6 +13,9 @@ public class UserRepository {
         if (user.getId() == null) {
             user.setId(idCounter++);
         }
+        if (!user.getEmail().contains("@")) {
+            throw new IllegalArgumentException("User must have an email");
+        }
         users.put(user.getId(), user);
         return user;
     }
