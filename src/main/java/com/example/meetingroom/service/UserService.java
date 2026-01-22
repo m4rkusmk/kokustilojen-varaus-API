@@ -16,8 +16,11 @@ public class UserService {
     }
 
     public User create(User user) {
-        if (!user.getEmail().contains("@")) {
-            throw new IllegalArgumentException("User must have an email");
+
+        Integer email_length = user.getEmail().length();
+        
+        if (!user.getEmail().substring(email_length -12, email_length -3).equals("mycompany")) {
+            throw new IllegalArgumentException("User must have a company email");
         }
         repository.findAll().forEach(existing -> {
             if (existing.getEmail().equals(user.getEmail())) {
