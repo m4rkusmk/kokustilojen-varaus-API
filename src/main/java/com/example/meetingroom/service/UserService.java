@@ -16,7 +16,9 @@ public class UserService {
     }
 
     public User create(User user) {
-
+        if (!user.getEmail().contains("@")) {
+            throw new IllegalArgumentException("User must have an email");
+        }
         repository.findAll().forEach(existing -> {
             if (existing.getEmail().equals(user.getEmail())) {
                 throw new IllegalArgumentException("User already exists");
