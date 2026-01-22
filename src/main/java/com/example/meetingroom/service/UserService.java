@@ -16,6 +16,12 @@ public class UserService {
     }
 
     public User create(User user) {
+
+        repository.findAll().forEach(existing -> {
+            if (existing.getEmail().equals(user.getEmail())) {
+                throw new IllegalArgumentException("User already exists");
+            }
+        });
         return repository.save(user);
     }
 
