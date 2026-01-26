@@ -31,7 +31,7 @@ List meetingrooms:
 
 Add a user:
 ## POST /users
-Only emails including @mycompany are allowed
+Only emails including @mycompany are allowed - to change this edit UserService.java
 ```
 {
     "name": "testuser",
@@ -83,4 +83,5 @@ List bookings:
 ```
 Delete booking by booking id and user id:
 ## DELETE /bookings/{id}?userId={userId} (bookings/1000?userId=100)
+
 
