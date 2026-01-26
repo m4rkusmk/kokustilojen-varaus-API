@@ -54,6 +54,9 @@ List users:
 Get user by id:
 ## GET /users/{id} (/users/100)
 
+Delete user by id:
+## DELETE /users/{id} (/users/100)
+
 Add a booking:
 ## POST /bookings
 ```
@@ -80,3 +83,4 @@ List bookings:
 ```
 Delete booking by booking id and user id:
 ## DELETE /bookings/{id}?userId={userId} (bookings/1000?userId=100)
+
