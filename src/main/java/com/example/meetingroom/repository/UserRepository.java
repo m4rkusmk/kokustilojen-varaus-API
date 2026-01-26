@@ -20,7 +20,12 @@ public class UserRepository {
     public Optional<User> findById(Long id) {
         return Optional.ofNullable(users.get(id));
     }
+
     public List<User> findAll() {
         return new ArrayList<>(users.values());
+    }
+
+    public void delete(Long id) {
+        users.remove(id);
     }
 }

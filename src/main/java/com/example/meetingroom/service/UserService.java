@@ -38,4 +38,11 @@ public class UserService {
     public List<User> findAll() {
         return repository.findAll();
     }
+
+    public void delete(Long id) {
+        User user = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        repository.delete(id);
+    }
 }
